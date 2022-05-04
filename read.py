@@ -71,6 +71,17 @@ def read_files(num_files: int, files: List[str]) -> npt.NDArray[np.float64]:
             data[:,i] = data_file[:,0]
     return data
 
+def read_data() -> npt.NDArray[np.float64]:
+    """
+    It reads the data from the files
+    
+    - return: 
+        - A numpy array of float64
+    """
+    number_of_files = int(input("Introduce the number of files: "))
+    files = choose_files(number_of_files)
+    return read_files(number_of_files, files)
+
 def main():
     files = choose_files(2)
     print(read_files(2, files))
