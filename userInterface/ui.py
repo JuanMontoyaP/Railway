@@ -1,5 +1,4 @@
-from turtle import st
-from functions import *
+import functions.functions as func
 
 import os
 from typing import List
@@ -12,11 +11,11 @@ def print_headings(heading: str):
         - heading [str]: The heading to be printed
     """
     msg = "Metro Analysis Proram"
-    print_line()
-    print_message(msg.center(70, " "))
-    print_line()
+    func.print_line()
+    func.print_message(msg.center(70, " "))
+    func.print_line()
     print()
-    print_message(heading.upper().center(70))
+    func.print_message(heading.upper().center(70))
 
 def print_description(description: str):
     """
@@ -25,7 +24,7 @@ def print_description(description: str):
     - params
         - description [Str]: The description of the page
     """
-    print_message(description.center(70, "-"))
+    func.print_message(description.center(70, "-"))
     print()
 
 def print_options_of_the_page(options: List[str], zero_value: str):

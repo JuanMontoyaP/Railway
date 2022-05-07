@@ -1,9 +1,9 @@
-from ui import *
+import userInterface.ui as ui
 
 def main():
-    # Read the files
-    selection = main_page()
+    selection = ui.main_page()
     # rail_roughness = read_data()
+
     # TODO Calculate the growth factor
     # TODO Calculate when the rail is going to fail
     # TODO Tell the user when the rail is going to fail
