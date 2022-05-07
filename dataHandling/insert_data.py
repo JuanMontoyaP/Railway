@@ -1,5 +1,5 @@
 from functions.functions import user_input, check_if_a_string_is_in_list
-from datahandling.read import choose_a_file
+from .read import choose_a_file
 
 from typing import List
 from datetime import datetime
