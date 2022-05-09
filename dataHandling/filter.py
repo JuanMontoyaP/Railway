@@ -16,6 +16,17 @@ def filter_json_data(value, data, key):
     """
     return list(filter(lambda record: key_value_json(record, key) == value, data))
 
+def data_available():
+    """
+    It reads the JSON file and returns a list of lists, where each inner list contains the curve,
+    thread, and date for a single record
+    
+    - Returns: 
+        - A list of lists.
+    """
+    records = read_json_file("C:/Users/jpmon/Documents/Railway/data/rail_data.json")
+    return [[record["curve"], record["thread"], record["date"], record["reprofiling"]] for record in records]
+
 def main():
     data = read_json_file("data/rail_data.json")
     print(filter_json_data("HA", data, "thread"))
