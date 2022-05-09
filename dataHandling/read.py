@@ -11,8 +11,13 @@ def choose_a_file() -> str:
     - return:
         - The file path of the file that was chosen.
     """
-    Tk().withdraw()
-    filename = askopenfilename(title='Choose a file')
+    while True:
+        Tk().withdraw()
+        filename = askopenfilename(title='Choose a file')
+        if filename:
+            break
+        else:
+            print("Select a file")
     return filename
 
 def choose_files(number_of_files: int) -> List[str]:
@@ -83,8 +88,8 @@ def read_data() -> npt.NDArray[np.float64]:
     return read_files(number_of_files, files)
 
 def main():
-    files = choose_files(2)
-    print(read_files(2, files))
+    files = choose_a_file()
+    # print(read_files(2, files))
 
 if __name__ == '__main__':
     main()
