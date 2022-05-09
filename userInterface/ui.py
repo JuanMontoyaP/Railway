@@ -39,7 +39,7 @@ def print_options_of_the_page(options: List[str], zero_value: str):
         print("[{}]: {}".format(ind+1, option))
     print("[0]: {}".format(zero_value))
 
-def print_page(page_name: str, description: str, options: List[str], zero_value: str) -> int:
+def print_page(page_name: str, description: str, options: List[str], zero_value: str):
     """
     It prints a page with a name, a description and a list of options, and returns the selected option
     
@@ -57,11 +57,22 @@ def print_page(page_name: str, description: str, options: List[str], zero_value:
     print_description(description)
     print_options_of_the_page(options, zero_value)
 
+def page_selection(options: int):
+    """
+    Reads the user selection of the page and validates that it is a valid selection
+    
+    - Params 
+        - options [int]: Amount of values available to the user
+
+    - Returns 
+        - The selection of the user
+    """
+
     while True:
         selection = input("Select and alternative:")
         try:
             selection = int(selection)
-            if selection <=len(options):
+            if selection <=options:
                 break
             else:
                 raise ValueError
@@ -69,23 +80,9 @@ def print_page(page_name: str, description: str, options: List[str], zero_value:
             print("Insert a valid option")
             pass
     return selection
-
-def main_page():
-    """
-    It prints a page with a title, a description, and a list of options
-    
-    - returns: 
-        - the result of the print_page function.
-    """
-    page = "Main Page"
-    description = "This program collects data form CAT system and generates reports"
-    options = ["Insert new data", "Generate reports"]
-    zero_value = "Exit"
-    return print_page(page, description, options, zero_value)
     
 def main():
-    main_page()
-
+    pass
 
 if __name__ == '__main__':
     main()
