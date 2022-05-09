@@ -1,3 +1,5 @@
+from typing import List, Dict
+
 
 def print_line(length: int = 70):
     """
@@ -42,7 +44,7 @@ def user_input(function, msg: str, kwargs=[]):
             pass
     return value
 
-def check_if_a_string_is_in_list(my_string : str,values: list[str]) -> bool:
+def check_if_a_string_is_in_list(my_string : str,values: List[str]) -> bool:
     """
     It checks if a string is valid by checking if it is equal to any of the values in a list of strings
     
@@ -53,6 +55,16 @@ def check_if_a_string_is_in_list(my_string : str,values: list[str]) -> bool:
         - True if the string is in the list of values
     """
     return any([my_string == values for values in values])
+
+def convert_value_to_string(dictionary : Dict, key: str):
+    """
+    It takes a dictionary and a key, and converts the value of the key to a string
+    
+    - Params 
+        - dictionary [Dict]: The dictionary you want to convert the value to a string
+        - key [str]: The key of the dictionary whose value you want to convert to a string
+    """
+    dictionary[key] = str(dictionary[key])
 
 def main():
     pass
