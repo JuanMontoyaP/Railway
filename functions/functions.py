@@ -1,5 +1,5 @@
+import sys
 from typing import List, Dict
-
 
 def print_line(length: int = 70):
     """
@@ -65,6 +65,14 @@ def convert_value_to_string(dictionary : Dict, key: str):
         - key [str]: The key of the dictionary whose value you want to convert to a string
     """
     dictionary[key] = str(dictionary[key])
+
+def key_value_json(json_file, key):
+    """Returns the key value of a json file."""
+    try:
+        return json_file[key]
+    except KeyError as error:
+        print(f'The key: {error} does not exist.')
+        sys.exit()
 
 def main():
     pass
