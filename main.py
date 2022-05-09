@@ -4,14 +4,14 @@ from pages import mainpage as mp
 from pages import insertpage as ip
 
 def main():
-    # selection = mp.main_page()
-    ip.insert_page()
-    # if selection == 1:
-    #     pass
-    # elif selection == 2:
-    #     pass
-    # else:
-    #     sys.exit("Exit program")
+# A commented code that is not being used.
+    selection = mp.main_page()
+    if selection == 1:
+        ip.insert_page()
+    elif selection == 2:
+        pass
+    else:
+        sys.exit("Exit program")
     
     # rail_roughness = read_data()
 
