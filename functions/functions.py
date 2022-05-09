@@ -54,7 +54,7 @@ def check_if_a_string_is_in_list(my_string : str,values: List[str]) -> bool:
     - return: 
         - True if the string is in the list of values
     """
-    return any([my_string == values for values in values])
+    return my_string in values
 
 def convert_value_to_string(dictionary : Dict, key: str):
     """
