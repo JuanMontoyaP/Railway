@@ -1,6 +1,6 @@
 import userinterface.ui as ui
 
-from datahandling.insert_data import insert_rail_data
+from datahandling.insert import insert_rail_data
 
 import os
 import sys
