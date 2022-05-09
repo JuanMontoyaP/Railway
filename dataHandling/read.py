@@ -1,6 +1,7 @@
 from typing import List
 import numpy.typing as npt
 
+import json
 import numpy as np
 from tkinter import Tk 
 from tkinter.filedialog import askopenfilename
@@ -87,9 +88,23 @@ def read_data() -> npt.NDArray[np.float64]:
     files = choose_files(number_of_files)
     return read_files(number_of_files, files)
 
+def read_json_file(filename: str):
+    """
+    It reads a JSON file and returns the data
+    
+    Params 
+        - filename [str]: The route of the file to read
+
+    Returns 
+        - The data from the file
+    """
+    with open(filename, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return data
+
 def main():
-    files = choose_a_file()
-    # print(read_files(2, files))
+    file_name = choose_a_file()
+    print(read_json_file(file_name))
 
 if __name__ == '__main__':
     main()
