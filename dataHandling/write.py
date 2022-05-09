@@ -1,6 +1,3 @@
-from datahandling.insert_data import insert_rail_data
-from functions.functions import convert_value_to_string
-
 import json
 
 from typing import Dict
@@ -19,11 +16,10 @@ def write_a_dictionary_in_a_json_file(data_dictionary: Dict, file_name : str = "
         data.append(data_dictionary)
         f.seek(0)
         json.dump(data, f)
+        
 
 def main():
-    data = insert_rail_data()
-    convert_value_to_string(data, "date")
-    write_a_dictionary_in_a_json_file(data)
+    pass
 
 if __name__ == '__main__':
     main()

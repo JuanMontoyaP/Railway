@@ -39,7 +39,7 @@ def print_options_of_the_page(options: List[str], zero_value: str):
         print("[{}]: {}".format(ind+1, option))
     print("[0]: {}".format(zero_value))
 
-def print_page(page_name: str, description: str, options: List[str], zero_value: str):
+def print_page(page_name: str, description: str, options: List[str] = [], zero_value: str = ""):
     """
     It prints a page with a name, a description and a list of options, and returns the selected option
     
@@ -55,7 +55,8 @@ def print_page(page_name: str, description: str, options: List[str], zero_value:
     os.system('cls')
     print_headings(page_name)
     print_description(description)
-    print_options_of_the_page(options, zero_value)
+    if options:
+        print_options_of_the_page(options, zero_value)
 
 def page_selection(options: int):
     """

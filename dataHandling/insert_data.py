@@ -1,4 +1,5 @@
-from functions.functions import user_input, check_if_a_string_is_in_list
+import functions.functions as func
+from .write import write_a_dictionary_in_a_json_file
 from .read import choose_a_file
 
 from typing import List
@@ -18,12 +19,12 @@ def valid_input(user_input: str, valid_options: List[str]):
     """
     user_input = user_input.upper()
     options = list(map(lambda option: option.upper(), valid_options))
-    if check_if_a_string_is_in_list(user_input, options):
+    if func.check_if_a_string_is_in_list(user_input, options):
         return user_input
     else:
         raise ValueError
 
-def insert_rail_data():
+def input_rail_data():
     """
     It asks the user for a curve, thread, date, reprofiling, and file location, and returns a dictionary
     with those values
@@ -32,12 +33,17 @@ def insert_rail_data():
         - A dictionary with the data that the user has inputted.
     """
     data = {}
-    data["curve"] = user_input(int, "Insert the curve: ")
-    data["thread"] = user_input(valid_input, "Insert rail thread: ", [["HA", "HB"]])
-    data["date"] = user_input(datetime.fromisoformat, "Insert the date of the measurement [YYYY-MM-DD]: ")
-    data["reprofiling"] = user_input(valid_input, "Insert yes or no if the measurement is from a reprofiled rail: ", [["yes", "no"]])
+    data["curve"] = func.user_input(int, "Insert the curve: ")
+    data["thread"] = func.user_input(valid_input, "Insert rail thread: ", [["HA", "HB"]])
+    data["date"] = func.user_input(datetime.fromisoformat, "Insert the date of the measurement [YYYY-MM-DD]: ")
+    data["reprofiling"] = func.user_input(valid_input, "Insert yes or no if the measurement is from a reprofiled rail: ", [["yes", "no"]])
     data["file_location"] = choose_a_file()
     return data
+
+def insert_rail_data():
+    data = input_rail_data()
+    func.convert_value_to_string(data, "date")
+    write_a_dictionary_in_a_json_file(data)
 
 def main():
     insert_rail_data()
