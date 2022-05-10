@@ -74,6 +74,20 @@ def key_value_json(json_file, key):
         print(f'The key: {error} does not exist.')
         sys.exit()
 
+def unique_items_in_nested_list(my_list: List[List]) -> List[List]:
+    """
+    It takes a list of lists, and returns a list of lists with all duplicates removed
+    
+    - Params 
+        - my_list List[List]: Nested list 
+
+    - Returns 
+        - A list of lists of the unique items
+    """
+    unique_list = []
+    [unique_list.append(item) for item in my_list if item not in unique_list]
+    return unique_list
+
 def main():
     pass
 
