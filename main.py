@@ -2,6 +2,7 @@ import sys
 
 from pages import mainpage as mp
 from pages import insertpage as ip
+from pages import reportspage as rp
 
 def main():
 # A commented code that is not being used.
@@ -9,7 +10,7 @@ def main():
     if selection == 1:
         ip.insert_page()
     elif selection == 2:
-        pass
+        rp.reports_page()
     else:
         sys.exit("Exit program")
     
