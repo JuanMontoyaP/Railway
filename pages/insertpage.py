@@ -33,7 +33,8 @@ def show_available_data():
     """
     It prints out the available data in the database
     """
-    records = data_available()
+    keys = ["curve", "thread", "date","reprofiling"]
+    records = data_available(keys)
     for record in records:
         print(f'Curve: {record[0]}, Thread: {record[1]}, Date: {record[2][:10]}, Reprofiling: {record[3]}')
 
