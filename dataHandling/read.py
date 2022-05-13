@@ -34,21 +34,21 @@ def choose_files(number_of_files: int) -> List[str]:
     """
     return [choose_a_file() for _ in range(number_of_files)]
 
-def read_isodata(file : str) -> npt.NDArray[np.float64]:
+def read_catdata(file : str, death_lines: int = 7) -> npt.NDArray[np.float64]:
     """
-    It reads the first six lines of the file, then reads the rest of the lines and converts them to
-    floats
+    It reads a file, skips the first 7 lines, and then reads the rest of the lines into a numpy array
     
-    - params
-        - file [str]: The file to read from
+    - Param
+        - file [str]: the file to read
+        - death_lines [int]: The number of lines to skip before the data starts, defaults to 7, for iso data change to 6
 
-    - return 
-        - A numpy array of the data from the file.
+    - Return: 
+        - A numpy array of the data.
     """
     data = []
 
     with open(file, "r") as f:
-        for _ in range(6):
+        for _ in range(death_lines):
             f.readline()
         lines = f.readlines()
 
@@ -71,7 +71,7 @@ def read_files(num_files: int, files: List[str]) -> npt.NDArray[np.float64]:
     """
     data = np.zeros((26,num_files+1))
     for i, file in enumerate(files):
-        data_file = read_isodata(file)
+        data_file = read_catdata(file)
         data[:,i+1] = data_file[:,1]
         if not i:
             data[:,i] = data_file[:,0]
