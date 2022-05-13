@@ -10,7 +10,7 @@ def make_report(curve_record : Dict):
     pdf.identifier(curve_record['curve'], curve_record['thread'], curve_record['date'][:10] ,curve_record['reprofiling'])
     pdf.graphs()
     pdf.output(
-        "C:/Users/jpmon/Documents/Railway/data/reports/report{}_{}_{}.pdf"
+        "data/reports/report{}_{}_{}.pdf"
         .format(curve_record['curve'], curve_record["thread"], curve_record["date"][:10])
         )
 

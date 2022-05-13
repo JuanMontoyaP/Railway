@@ -37,7 +37,10 @@ def input_rail_data():
     data["thread"] = func.user_input(valid_input, "Insert rail thread: ", [["HA", "HB"]])
     data["date"] = func.user_input(datetime.fromisoformat, "Insert the date of the measurement [YYYY-MM-DD]: ")
     data["reprofiling"] = func.user_input(valid_input, "Insert yes or no if the measurement is from a reprofiled rail: ", [["yes", "no"]])
-    data["file_location"] = choose_a_file()
+    data["raw_file"] = choose_a_file("Select the raw data file")
+    data["filter_file"] = choose_a_file("Select the filter file")
+    data["exc_file"] = choose_a_file("Select the exc_file")
+    data["iso_file"] = choose_a_file("Select the iso file")
     return data
 
 def insert_rail_data():

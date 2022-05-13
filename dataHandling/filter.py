@@ -47,7 +47,7 @@ def data_available(keys: List[str]):
     - Return: 
         - A list of lists.
     """
-    records = read_json_file("C:/Users/jpmon/Documents/Railway/data/db/rail_data.json")
+    records = read_json_file("data/db/rail_data.json")
     return [[record[key] for key in keys] for record in records]
 
 def filter_curves(curve_str: str, indexes: List[int], keys: List[str]) -> List[Dict]:
@@ -70,7 +70,7 @@ def filter_curves(curve_str: str, indexes: List[int], keys: List[str]) -> List[D
         elif key == 'date':
             filter_dic[key] = str(datetime.strptime(filter_dic[key], '%Y-%m-%d'))
 
-    records = read_json_file("C:/Users/jpmon/Documents/Railway/data/db/rail_data.json")
+    records = read_json_file("data/db/rail_data.json")
     return filter_data(filter_dic, records)
 
 def main():

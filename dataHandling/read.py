@@ -6,7 +6,7 @@ import numpy as np
 from tkinter import Tk 
 from tkinter.filedialog import askopenfilename
 
-def choose_a_file() -> str:
+def choose_a_file(msg: str = 'Choose a file') -> str:
     """
     It creates a Tkinter window, withdraws it, and then asks the user to choose a file
     - return:
@@ -14,7 +14,7 @@ def choose_a_file() -> str:
     """
     while True:
         Tk().withdraw()
-        filename = askopenfilename(title='Choose a file')
+        filename = askopenfilename(title=msg)
         if filename:
             break
         else:

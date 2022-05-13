@@ -2,7 +2,7 @@ import json
 
 from typing import Dict
 
-def write_a_dictionary_in_a_json_file(data_dictionary: Dict, file_name : str = "data/rail_data.json"):
+def write_a_dictionary_in_a_json_file(data_dictionary: Dict, file_name : str = "data/db/rail_data.json"):
     """
     It opens a file, reads the data in the file, appends the data_dictionary to the data, and then
     writes the data back to the file
