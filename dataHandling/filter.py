@@ -46,7 +46,7 @@ def data_available(keys: List[str]):
     - Return: 
         - A list of lists.
     """
-    records = read_json_file("C:/Users/jpmon/Documents/Railway/data/rail_data.json")
+    records = read_json_file("C:/Users/jpmon/Documents/Railway/data/db/rail_data.json")
     return [[record[key] for key in keys] for record in records]
 
 def main():
