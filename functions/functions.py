@@ -1,4 +1,6 @@
 import sys
+import re
+
 from typing import List, Dict
 
 def print_line(length: int = 70):
@@ -87,6 +89,24 @@ def unique_items_in_nested_list(my_list: List[List]) -> List[List]:
     unique_list = []
     [unique_list.append(item) for item in my_list if item not in unique_list]
     return unique_list
+
+def split_strings_and_return_certain_values(my_string: str, delimiters: str, values: List[int] = []) -> List[str]:
+    """
+    It takes a string, splits it into a list of strings based on the delimiters provided, and returns
+    the values in the list that are specified by the values parameter
+    
+    - Params: 
+        - my_string [str]: The string you want to split
+        - delimiters [str]: The delimiters you want to split the string by
+        - values: List[int] = []
+
+    - Return: 
+        - List[str]: A list of strings
+    """
+    if values:
+        return [re.split(delimiters, my_string)[ind] for ind in values]
+    else:
+        return re.split(delimiters, my_string)
 
 def main():
     pass

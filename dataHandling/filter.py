@@ -1,7 +1,7 @@
 from functions.functions import key_value_json
 from .read import read_json_file
 
-from typing import List
+from typing import List, Dict
 
 def filter_json_data(value, data, key):
     """
@@ -17,6 +17,23 @@ def filter_json_data(value, data, key):
         - A list of dictionaries
     """
     return list(filter(lambda record: key_value_json(record, key) == value, data))
+
+def filter_data(filter_dict: Dict, data: List[Dict]) -> List[Dict]:
+    """
+    It takes a dictionary of filters and a list of dictionaries and returns a list of dictionaries that
+    match the filters
+    
+    - Params 
+        - filter_dict [Dict]: This is the dictionary that contains the filter criteria
+        - data List[Dict]: Data to be filtered
+
+    - Returns: 
+        - A list of dictionaries.
+    """
+    records = data
+    for key,value in filter_dict.items():
+        records = filter_json_data(value, records, key)
+    return records
 
 def data_available(keys: List[str]):
     """
