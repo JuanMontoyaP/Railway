@@ -8,15 +8,15 @@ from reports import reports as rep
 
 # A function that is being called from the mainpage.py file.
 def main():
-    selection = mp.main_page()
-    if selection == 1:
-        ip.insert_page()
-    elif selection == 2:
-        rp.reports_page()
-    else:
-        sys.exit("Exit program")
+    # selection = mp.main_page()
+    # if selection == 1:
+    #     ip.insert_page()
+    # elif selection == 2:
+    #     rp.reports_page()
+    # else:
+    #     sys.exit("Exit program")
     
-    # rep.generate_reports("Curve 13, HA, date 2021-12-16")
+    rep.generate_reports("Curve 13, HA, date 2021-12-16")
     # rail_roughness = read_data()
 
     # TODO Calculate the growth factor

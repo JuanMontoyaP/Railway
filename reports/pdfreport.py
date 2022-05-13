@@ -1,5 +1,6 @@
-from typing import List
+from graphs.rawgraph import raw_data_graph
 
+from typing import List
 from fpdf import FPDF
 
 class PDF(FPDF):
@@ -17,8 +18,12 @@ class PDF(FPDF):
         self.cell(0,10, "Fecha: {}".format(date), 0,2,'L')
         self.cell(0,10, "Reperfilado: {}".format(reprofiling), 0,2,'L')
 
-    def graphs(self):
+    def get_raw_data_graph(self, file_directory):
+        raw_data_graph(file_directory)
+
+    def graphs(self, curve_record):
         self.set_font('Arial','B',12)
         self.cell(0,10, "2. Gráficos", 0,2,'L')
         self.cell(0,10, "2.1 Raw data", 0,2,'L')
+        self.get_raw_data_graph(curve_record["raw_file"])
         

@@ -8,7 +8,7 @@ def make_report(curve_record : Dict):
     pdf.set_font(family='Arial', size=12)
     pdf.add_page()
     pdf.identifier(curve_record['curve'], curve_record['thread'], curve_record['date'][:10] ,curve_record['reprofiling'])
-    pdf.graphs()
+    pdf.graphs(curve_record)
     pdf.output(
         "data/reports/report{}_{}_{}.pdf"
         .format(curve_record['curve'], curve_record["thread"], curve_record["date"][:10])
