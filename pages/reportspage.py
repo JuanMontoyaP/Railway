@@ -1,4 +1,5 @@
 import userinterface.ui as ui
+import reports.reports as rep
 from datahandling.filter import data_available
 from functions.functions import unique_items_in_nested_list
 
@@ -49,10 +50,9 @@ def print_generate_reports_page():
     ui.print_page(page, description, options, "Exit")
     selection = ui.page_selection(len(options))
     if selection:
-        pass
+        rep.generate_reports(options[selection - 1])
     else:
         sys.exit("Exit program")
-
 
 def reports_page():
     selection = print_insert_main_page()

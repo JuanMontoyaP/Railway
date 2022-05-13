@@ -108,6 +108,22 @@ def split_strings_and_return_certain_values(my_string: str, delimiters: str, val
     else:
         return re.split(delimiters, my_string)
 
+def convert_a_string_into_dict(my_string: str, values: List[int], keys: List[str]):
+    """
+    It takes a string, splits it into a list, and then returns a dictionary with the values from the
+    list as the values and the keys as the keys
+    
+    - Params 
+        - my_string [str]: The string you want to convert into a dictionary
+        - values List[int]: The indexes of the values of the strings you want to keep
+        - keys List[str]: The keys of the dictionary
+
+    - Returns 
+        - A dictionary
+    """
+    string_list = split_strings_and_return_certain_values(my_string, ', | ', values)
+    return dict(zip(keys, string_list))
+
 def main():
     pass
 
