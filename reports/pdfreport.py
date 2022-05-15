@@ -47,5 +47,5 @@ class PDF(FPDF):
         self.cell(0,10, "2. Gráficos", 0,2,'L')
         self.cell(0,10, "2.1 Raw data", 0,2,'L')
         self.print_raw_graph(curve_record)
-        self.cell(0,10, "2.3 Filtro 30 -100", 0,2,'L')
+        self.cell(0,10, "2.3 Filtro 30 - 100", 0,2,'L')
         self.print_filter_graph(curve_record)
