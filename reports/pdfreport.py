@@ -1,5 +1,6 @@
 from graphs.rawgraph import raw_data_graph
 from graphs.filtergraph import filter_data_graph
+from graphs.exceedencegraph import exceedence_data_graph
 
 import os
 
@@ -31,7 +32,8 @@ class PDF(FPDF):
     def print_graph(self, graph_type, curve_record, w=190, h=80):
         type_of_graphs = {
             "raw": raw_data_graph,
-            "filter": filter_data_graph
+            "filter": filter_data_graph,
+            "exc": exceedence_data_graph
             }
         image = self.get_graph(curve_record, graph_type, type_of_graphs[graph_type])
         self.image(image, w=w, h=h, type='PNG')
@@ -43,3 +45,9 @@ class PDF(FPDF):
         self.print_graph("raw", curve_record)
         self.cell(0,10, "2.3 Filtro 30 - 100", 0,2,'L')
         self.print_graph("filter", curve_record)
+        self.add_page()
+        self.cell(0,10, "2.3. Excedencia.", 0,2,'L')
+        self.print_graph("exc", curve_record, w=100, h=100)
+
+
+
