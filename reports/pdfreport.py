@@ -1,6 +1,7 @@
 from graphs.rawgraph import raw_data_graph
 from graphs.filtergraph import filter_data_graph
 from graphs.exceedencegraph import exceedence_data_graph
+from graphs.isograph import iso_data_graph
 
 import os
 
@@ -33,7 +34,8 @@ class PDF(FPDF):
         type_of_graphs = {
             "raw": raw_data_graph,
             "filter": filter_data_graph,
-            "exc": exceedence_data_graph
+            "exc": exceedence_data_graph,
+            "iso": iso_data_graph
             }
         image = self.get_graph(curve_record, graph_type, type_of_graphs[graph_type])
         self.image(image, w=w, h=h, type='PNG')
@@ -48,6 +50,10 @@ class PDF(FPDF):
         self.add_page()
         self.cell(0,10, "2.3. Excedencia.", 0,2,'L')
         self.print_graph("exc", curve_record, w=100, h=100)
+        self.cell(0,10, "2.4. ISO.", 0,2,'L')
+        self.print_graph("iso", curve_record, w=100, h=100)
+
+
 
 
 
