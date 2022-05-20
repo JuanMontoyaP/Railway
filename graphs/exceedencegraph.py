@@ -6,6 +6,12 @@ import matplotlib.pyplot as plt
 from typing import Dict
 
 def exceedence_data_graph(record: Dict):
+    """
+    It takes a record from the database, reads the data from the exceedence file, plots the data and saves it to a file
+    
+    Args:
+      record (Dict): Dict
+    """
     data = read_catdata(record["exc_file"])
     graph_data(data, ["Exceedence Data Curve: %d" % record["curve"] , "Abs Disp $[\mu m]$", "Exceedence $[\%]$"], (6,6)) #type: ignore
     plt.axhline(y=5, color='grey', linestyle='--')

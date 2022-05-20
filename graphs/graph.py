@@ -1,10 +1,11 @@
+from matplotlib.figure import Figure
 import numpy as np
 import matplotlib.pyplot as plt
 
 import numpy.typing as npt
 from typing import List
 
-def graph_data(data: npt.NDArray[np.float64], labels: List[str] = ["Title", "X", "Y"], figsize: tuple = (12,6)):
+def graph_data(data: npt.NDArray[np.float64], labels: List[str] = ["Title", "X", "Y"], figsize: tuple = (12,6)) -> Figure:
     """
     `graph_data`
 

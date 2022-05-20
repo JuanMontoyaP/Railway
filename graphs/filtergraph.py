@@ -6,6 +6,12 @@ import matplotlib.pyplot as plt
 from typing import Dict
 
 def filter_data_graph(record: Dict):
+    """
+    It takes a record from the database, reads the data from the filter file, and plots the data and saves it to a file
+    
+    - Args:
+        - record (Dict): Dict
+    """
     data = read_catdata(record["filter_file"])
     graph_data(data, ["Filter Data Curve: %d" % record["curve"] , "Position $[km]$", "30-100mm Disp $[\mu m]$"]) #type: ignore
     fig_name = "data/figures/filter_curve{}_{}_{}.png".format(record['curve'], record["thread"], record["date"][:10])
